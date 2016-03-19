@@ -1,0 +1,68 @@
+<div class="jumbotron">
+  <p class="lead">
+    <img src="images/logo.png" alt="millenium systems"><br>
+    Coding Test
+  </p>
+</div>
+  <!--
+  <div class="alert alert-info">
+      <p>Sort Type: {{ sortType }}</p>
+      <p>Sort Reverse: {{ sortReverse }}</p>
+      <p>Search Query: {{ searchTerm }}</p>
+      <p>Search Criteria: {{filterCriteria}}</p>
+  </div>
+  -->
+  <div class="col-md-12 search-bar">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search For: {{filterCriteria}} <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#" ng-click="changeFilter('$')">All</a></li>
+          <li><a href="#" ng-click="changeFilter('Name')">Name</a></li>
+          <li><a href="#" ng-click="changeFilter('Email')">Email</a></li>
+          <li><a href="#" ng-click="changeFilter('Country')">Country</a></li>
+        </ul>
+      </div>
+      <input type="text" class="form-control" placeholder="Begin Typing Here" aria-label="..." ng-model="searchCriteria[filterCriteria]">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alt-table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+              <tr>
+                <th>
+                  <a href="#" ng-click="sortType = 'Name'; sortReverse = !sortReverse">
+                    Name  
+                    <span ng-show="sortType == 'Name' && sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                    <span ng-show="sortType == 'Name' && !sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+
+                  </a>
+                </th>
+                <th>
+                  <a href="#" ng-click="sortType = 'Email'; sortReverse = !sortReverse">
+                    Email  
+                    <span ng-show="sortType == 'Email' && sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                    <span ng-show="sortType == 'Email' && !sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                  </a>
+                </th>
+                <th>
+                  <a href="#" ng-click="sortType = 'Country'; sortReverse = !sortReverse">
+                  Country  
+                  <span ng-show="sortType == 'Country' && sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                  <span ng-show="sortType == 'Country' && !sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                  </a>
+                </th>
+              </tr>
+              <tr ng-repeat="item in dataSet | orderBy:sortType:sortReverse | filter:searchCriteria" data="item">
+            </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  
+    
+    
+</div>
